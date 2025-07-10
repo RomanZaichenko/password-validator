@@ -19,6 +19,22 @@ function App() {
       setPasswordMessage("Weak Password");
     }
   }
+
+  return (
+    <div style={{marginLeft: "200px"}}>
+      <pre>
+        <h2>Password Strength Check</h2>
+        <span>Enter password: </span>
+        <input type="text" onChange={event =>
+          validate(event.target.value)}></input><br/>
+        {passwordMessage === '' ? null :
+          <span style={{
+            fontWeight: "bold",
+            color: "red"
+          }}>{passwordMessage}</span>}
+      </pre>
+    </div>
+  );
 }
 
 export default App
