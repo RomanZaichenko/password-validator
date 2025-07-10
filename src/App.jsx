@@ -4,7 +4,7 @@ import validator from "validator";
 
 function App() {
   const [passwordMessage, setPasswordMessage] = useState("");
-
+  const [color, setColor] = useState("");
   const validate = (value) => {
     if (validator.isStrongPassword(value, {
       minLength: 8,
@@ -14,9 +14,11 @@ function App() {
       minSymbols: 1
     })) {
       setPasswordMessage("Strong Password");
+      setColor("green");
     }
     else {
       setPasswordMessage("Weak Password");
+      setColor("red");
     }
   }
 
@@ -30,7 +32,7 @@ function App() {
         {passwordMessage === '' ? null :
           <span style={{
             fontWeight: "bold",
-            color: "red"
+            color: color
           }}>{passwordMessage}</span>}
       </pre>
     </div>
